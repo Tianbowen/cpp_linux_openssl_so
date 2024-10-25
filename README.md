@@ -5,7 +5,7 @@ Create c++ dynamic library project for Linux based platform using vs2019 with th
 
 ### 1. VS安装C++的Liunx开发
 
-![image-20241024175153149](\img\1.png)
+![image-20241024175153149](/img/1.png)
 
 
 
@@ -13,7 +13,7 @@ Create c++ dynamic library project for Linux based platform using vs2019 with th
 
 工具-选项-跨平台-连接管理器
 
-![image-20241024175153149](\img\2.png)
+![image-20241024175153149](/img/2.png)
 
 可更新IntelliSense管理器
 
@@ -24,6 +24,8 @@ Create c++ dynamic library project for Linux based platform using vs2019 with th
 ### 3. 新增源码
 
 项目右键属性-常规-配置类型-动态库(.so)
+
+![4.png](/img/4.png)
 
 ### 4. 使用命令查找openssl lib和include文件夹
 
