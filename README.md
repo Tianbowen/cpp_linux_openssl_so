@@ -112,3 +112,43 @@ find -name "libssl*"
 
 
 学习参考：[Visual Studio 2022 跨平台开发Linux C程序环境搭建_vs2022 linux 编程需要-CSDN博客](https://blog.csdn.net/zyy29182918/article/details/130405807)
+
+
+
+## 拓展
+
+> Linux下的静态库通常以`.a`结尾，但在 Winodws下为`.lib`或者`.a`结尾)
+>
+> Linux下的动态库以`.so` 或`.so.y`结尾，其中y代表版本号(Windows下为`.dll`)，而且，Linux下的库必须以`lib`开头，用于系统识别(如：`libjpeg.a`,`libsdl.so`等等)
+
+- Linux动态库默认搜索路径
+
+```
+/lib64、/usr/lib64、/lib、/usr/lib
+```
+
+- 系统头文件目录
+
+```
+/usr/include
+```
+
+- 常用命令
+
+```
+ldd main`：查看二进制可执行文件链接的动态链接库信息，例如`ldd nginx
+```
+
+`g++ -c main.cpp`：以单个xx.cpp源文件为单位只编译出xx.o的二进制文件（称为：目标文件）
+
+`g++ xx.o yy.o -o main`：链接所有相关的目标文件连同用到的静态库、动态库、运行时库到最终独立的可执行文件
+
+`file main`：查看文件格式信息
+
+`readelf -h main`：查看ELF文件的基本信息(ELF文件是Linux系统可执行文件的通用格式，windows系统的可执行文件通用格式为PE，二者非常相似，但是不兼容，都是对二进制代码的一种封装)
+
+`readelf -S main`：查看程序的区块，包含机器代码，与程序的数据
+
+`objdump -s -d main.o/main` ：查看ELF文件中的内容
+
+`objdump -r main.o`：查看目标文件的重定位表，用于查看哪些函数需要被重定位，以及被重定位位置的偏移量
