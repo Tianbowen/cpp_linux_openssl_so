@@ -1,6 +1,10 @@
 # cpp_linux_openssl_so
 Create c++ dynamic library project for Linux based platform using vs2019 with third party library openssl, learn example
 
+### 系统必备
+
+**VS**现在仅支持在 Linux 目标计算机上远程构建。我们不受特定 Linux 发行版的限制，但确实依赖于某些工具的存在。具体说来，我们需要 openssh-server、g++、gdb 和 gdbserver。请使用你喜爱的包管理器安装它们，例如，在基于 Debian 的系统上，可以使用 sudo apt-get install openssh-server g++ gdb gdbserver
+
 ## 准备工作
 
 ### 1. VS安装C++的Liunx开发
