@@ -152,3 +152,24 @@ ldd main`：查看二进制可执行文件链接的动态链接库信息，例�
 `objdump -s -d main.o/main` ：查看ELF文件中的内容
 
 `objdump -r main.o`：查看目标文件的重定位表，用于查看哪些函数需要被重定位，以及被重定位位置的偏移量
+
+#### windows
+
+既可以使用.def文件指明导出函数，可以用__declspec(dllexport)，建议第二种
+
+```c++
+extern "C" __declspec(dllexport) void add(int a, int b);
+```
+
+**extern C**表示导出标准C语言符号，体现在没有不干净的c++语言符号，
+
+例如：add函数名后面有乱码
+
+动态库通常会生成三个文件 dll、exp、lib。dll包含整体代码实现，lib是编译时需要包含了符号，exp没用。
+
+动态库lib文件与静态库lib不同
+
+#### Linux
+
+动态库仅生成一个so文件，静态库生成一个a文件
+
